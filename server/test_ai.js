@@ -10,8 +10,8 @@ if (!process.env.GEMINI_API_KEY) {
     console.log("GEMINI_API_KEY is present.");
 }
 
-console.log("Attempting to generate a quiz with Gemini...");
-generateQuiz("History", "Easy", "The Roman Empire was one of the largest empires in history. It was founded by Augustus Caesar.")
+console.log("Attempting to generate a quiz with Gemini (Physics context with LaTeX)...");
+generateQuiz("Physics", "Medium", "Newton's First Law (Law of Inertia), Newton's Second Law (F=ma), Newton's Third Law (Action-Reaction). Force equals mass times acceleration.")
     .then(result => {
         console.log("Success! Generated quiz:");
         console.log(JSON.stringify(result, null, 2));
