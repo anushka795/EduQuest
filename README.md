@@ -1,4 +1,4 @@
-# EduQuest - In-Memory Learning Platform
+# EduQuest - In-Memory Learning Platform 
 
 ## Overview
 EduQuest is a full-stack educational platform built with React, Node.js, and in-memory storage (no database required). Data resets when the server restarts.
