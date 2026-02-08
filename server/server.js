@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const path = require('path');
 
 dotenv.config();
 
@@ -34,9 +35,17 @@ app.use('/api/answers', forumRoutes);   // Forum answers base - handled in same 
 
 app.use('/api', forumRoutes);
 
-app.get('/', (req, res) => {
-    res.send('EduQuest API is running');
-});
+
+
+// Serve static assets in production
+if (process.env.NODE_ENV === 'production') {
+    // Set static folder
+    app.use(express.static(path.join(__dirname, '../client/dist')));
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, '../client', 'dist', 'index.html'));
+    });
+}
 
 // Start Server
 app.listen(PORT, () => {
